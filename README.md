@@ -1,4 +1,3 @@
-Here’s a rewritten **README.md** tailored for your filter while removing social/donation links and emphasizing its "for older people" visibility improvements:
 
 ---
 
