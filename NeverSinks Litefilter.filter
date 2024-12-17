@@ -1,175 +1,182 @@
 #===============================================================================================================
-# Enhanced General Loot Filter for Path of Exile 2 Early Access
+# NeverSink's Enhanced Loot Filter - for Path of Exile 2 EA (Customized by lightyoruichi)
 #===============================================================================================================
-# VERSION: 1.0.0
-# AUTHOR: lightyoruichi (inspired by NeverSink)
-# PURPOSE: Balanced clarity, prioritization of loot, and filtering of unwanted items
+# VERSION: 0.2.0
+# PURPOSE: Enhanced visibility and filtering for PoE2 gameplay with improved socket, shard, and waystone handling.
 #===============================================================================================================
 
 #--------------------------
-# Overrides - Uniques and Valuables
+# Uniques and Valuables
 #--------------------------
 
-Show # Highlight Uniques
-    Rarity Unique
-    SetTextColor 175 96 37 255
-    SetBorderColor 175 96 37 255
-    SetBackgroundColor 53 13 13 255
-    PlayAlertSound 3 300
-    PlayEffect Brown
-    MinimapIcon 2 Brown Star
-    SetFontSize 40
-
-Show # Divine Orb and Mirror
-    Class "Currency"
-    BaseType "Mirror" "Divine" "Perfect Jeweller's Orb"
-    SetFontSize 45
-    SetTextColor 255 0 0 255
-    SetBorderColor 255 0 0 255
-    SetBackgroundColor 255 255 255 255
-    PlayAlertSound 6 300
-    PlayEffect Red
-    MinimapIcon 0 Red Star
+Show
+Rarity Unique
+SetTextColor 175 96 37 255
+SetBorderColor 175 96 37 255
+SetBackgroundColor 53 13 13 255
+PlayAlertSound 3 300
+PlayEffect Brown
+MinimapIcon 2 Brown Star
+SetFontSize 40
 
 #--------------------------
-# Gold - Large Stacks Highlighted
+# Divine Tier Currency
 #--------------------------
 
-Show # Large Gold Stacks
-    BaseType "Gold"
-    StackSize >= 500
-    SetTextColor 255 255 255
-    SetBorderColor 255 255 255
-    PlayEffect Orange Temp
-
-Show # Small Gold Stacks
-    BaseType "Gold"
-    SetTextColor 180 180 180
-    SetBorderColor 0 0 0 255
-    SetBackgroundColor 0 0 0 180
+Show
+Class "Currency"
+BaseType "Mirror" "Divine" "Perfect Jeweller's Orb"
+SetFontSize 45
+SetTextColor 255 0 0 255
+SetBorderColor 255 0 0 255
+SetBackgroundColor 255 255 255 255
+PlayAlertSound 6 300
+PlayEffect Red
+MinimapIcon 0 Red Star
 
 #--------------------------
-# Socketables, Runes, and Relics
+# Gold
 #--------------------------
 
-Show # Soul Cores and Timeless Jewels
-    BaseType "Soul Core" "Timeless"
-    SetTextColor 0 240 190
-    SetBorderColor 0 240 190
-    SetFontSize 40
-    MinimapIcon 2 Cyan Triangle
-    PlayEffect Cyan
+Show
+StackSize >= 500
+BaseType == "Gold"
+SetTextColor 255 255 255
+SetBorderColor 255 255 255
+PlayEffect Orange Temp
 
-Show # Relics
-    Class "Relic"
-    SetTextColor 0 240 190
-    SetBorderColor 0 240 190
-    SetFontSize 40
-    MinimapIcon 2 Cyan Triangle
-    PlayEffect Cyan
-
-Show # Charms and Runes
-    BaseType " Charm" " Rune"
-    SetTextColor 0 240 190
-    PlayEffect Cyan Temp
+Show
+BaseType == "Gold"
+SetTextColor 180 180 180
+SetBorderColor 0 0 0 255
+SetBackgroundColor 0 0 0 180
 
 #--------------------------
-# Gems
+# Shards (Including Orb of Chance Shard)
 #--------------------------
 
-Show # Skill Gems
-    Class "Skill Gems" "Support Gems"
-    SetFontSize 45
-    SetTextColor 0 255 255 200
-    SetBorderColor 0 255 255 200
-    SetBackgroundColor 0 0 0
-    PlayEffect Cyan
-    MinimapIcon 0 Cyan Circle
-
-Show # Uncut Gems
-    BaseType "Uncut"
-    SetTextColor 20 240 240
-    SetBorderColor 20 240 240
-    PlayAlertSound 2 300
-    PlayEffect Cyan
-    MinimapIcon 1 Cyan Triangle
+Show
+Class "Currency"
+BaseType "Chance Shard" "Transmutation Shard" "Regal Shard" "Artificer's Shard"
+SetFontSize 35
+SetBorderColor 180 158 135 255
+SetBackgroundColor 20 20 20 200
+PlayEffect Yellow
+MinimapIcon 2 Yellow Circle
 
 #--------------------------
-# Currency
+# Waystones with Tier
 #--------------------------
 
-Show # Top Currency
-    Class "Currency"
-    BaseType "Gemcutter's Prism" "Orb of Annulment" "Chaos Orb" "Exalted Orb" "Orb of Alchemy"
-    SetFontSize 40
-    SetTextColor 255 207 132
-    SetBorderColor 255 207 132
-    SetBackgroundColor 76 51 12
-    PlayAlertSound 1 300
-    PlayEffect White
-    MinimapIcon 1 White Circle
+Show
+BaseType "Waystone"
+WaystoneTier >= 4
+SetTextColor 255 255 255
+SetBorderColor 255 255 255
+SetBackgroundColor 50 50 50
+PlayAlertSound 4 300
+PlayEffect White
+MinimapIcon 1 White Diamond
+SetFontSize 40
 
-Show # Lesser Currency
-    Class "Currency"
-    BaseType "Orb of Transmutation" "Orb of Augmentation" "Armourer's Scrap" "Blacksmith's Whetstone"
-    SetTextColor 255 207 132
-    SetBorderColor 255 207 132
-    MinimapIcon 2 Grey Circle
-
-Show # Fragments
-    BaseType "Breachstone" "Expedition Logbook" "Simulacrum" "Cowardly Fate" "Deadly Fate"
-    SetTextColor 255 207 255
-    SetBorderColor 255 207 255
-    SetBackgroundColor 65 20 80
-    PlayAlertSound 2 300
-    PlayEffect White
-    MinimapIcon 1 White Square
-    SetFontSize 40
+Show
+BaseType "Waystone"
+WaystoneTier >= 1
+SetTextColor 200 200 200
+SetBorderColor 200 200 200
+SetBackgroundColor 20 20 20
+PlayEffect Grey
+MinimapIcon 1 Grey Diamond
 
 #--------------------------
-# Jewelry
+# Socket Filtering
 #--------------------------
 
-Show # Rare Jewelry
-    Class "Rings" "Amulets" "Belts"
-    Rarity Rare
-    SetFontSize 40
-    SetTextColor 233 206 75
-    SetBorderColor 233 206 75
-    PlayEffect Yellow
-    MinimapIcon 1 Yellow Diamond
+Show # Normal Items with Sockets
+Sockets 1
+Rarity Normal
+SetBorderColor 200 200 200
+SetFontSize 35
+PlayEffect White
+PlayAlertSound 2 300
 
-Show # Other Jewelry
-    Class "Rings" "Amulets" "Belts"
-    Rarity Magic Normal
-    SetFontSize 35
+Show
+Sockets 2
+Rarity Normal
+SetBorderColor 200 200 200
+SetFontSize 35
+PlayEffect White
+PlayAlertSound 2 300
+
+Show
+Sockets 3
+Rarity Normal
+SetBorderColor 200 200 200
+SetFontSize 35
+PlayEffect White
+PlayAlertSound 2 300
+
+Show # Magic Items with Sockets
+Sockets 1
+Rarity Magic
+SetBorderColor 0 0 200
+SetFontSize 35
+PlayEffect Blue
+PlayAlertSound 2 300
+
+Show
+Sockets 2
+Rarity Magic
+SetBorderColor 0 0 200
+SetFontSize 35
+PlayEffect Blue
+PlayAlertSound 2 300
+
+Show
+Sockets 3
+Rarity Magic
+SetBorderColor 0 0 200
+SetFontSize 35
+PlayEffect Blue
+PlayAlertSound 2 300
 
 #--------------------------
-# Salvageable Items
+# Breach Rings
 #--------------------------
 
-Show # Quality Items
-    Quality > 10
-    SetBorderColor 200 200 200
-    SetFontSize 35
-
-Show # Socketed Bases
-    Sockets > 0
-    SetBorderColor 200 200 200
-    SetFontSize 35
+Show
+BaseType "Breach Ring"
+SetTextColor 0 255 0 255
+SetBorderColor 0 255 0 200
+SetBackgroundColor 20 50 20 220
+PlayEffect Green
+MinimapIcon 1 Green Circle
+SetFontSize 40
 
 #--------------------------
-# Safety Net
+# Uncut Gems
 #--------------------------
 
-Show # Unknown Currency
-    Class "Currency"
-    SetTextColor 255 207 132
-    SetBorderColor 255 207 132
-    SetBackgroundColor 76 51 12
-    PlayAlertSound 2 300
-    PlayEffect Pink
-    MinimapIcon 1 White Circle
+Show
+BaseType "Uncut "
+SetTextColor 20 240 240
+SetBorderColor 20 240 240
+PlayAlertSound 2 300
+PlayEffect Cyan
+MinimapIcon 1 Cyan Triangle
 
-Show # Safety for All Items
-    SetFontSize 45
+#--------------------------
+# Safety Net - Unknown Currency and Catch-All
+#--------------------------
+
+Show
+Class "Currency"
+SetTextColor 255 207 132
+SetBorderColor 255 207 132
+SetBackgroundColor 76 51 12
+PlayAlertSound 2 300
+PlayEffect Pink
+MinimapIcon 1 White Circle
+
+Show # Safety for non-filtered items
+SetFontSize 45
